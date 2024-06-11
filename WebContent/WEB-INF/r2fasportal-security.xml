@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:beans="http://www.springframework.org/schema/beans" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:ldap="http://www.springframework.org/schema/ldap" 
+	xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/ldap http://www.springframework.org/schema/ldap/spring-ldap.xsd">
+	
+	<global-method-security pre-post-annotations="enabled" />
+
+	<http pattern="/images/**" security="none" />
+	<http pattern="/scripts/**" security="none" />
+	<http pattern="/styles/**" security="none" />
+	<http pattern="/loggedout.do" security="none" />
+	<http pattern="/invalidUser.do" security="none" />
+	<http pattern="/duplicateAccess.do" security="none" />
+
+	<http auto-config="false" use-expressions="true"
+		disable-url-rewriting="true" entry-point-ref="loginUrlAuthenticationEntryPoint">
+		<intercept-url pattern="/test.do" access="permitAll" />
+		<intercept-url pattern="/login.do" access="permitAll" />
+		<intercept-url pattern="/logout.do" access="permitAll" />
+		<intercept-url pattern="/accessDenied.do" access="permitAll" />
+		<intercept-url pattern="/loginDenied.do" access="permitAll" />
+		<intercept-url pattern="/sessionTimeout.do" access="permitAll" />
+		<intercept-url pattern="/errorCode404.do" access="permitAll" />
+		<intercept-url pattern="/errorCode405.do" access="permitAll" />
+		<intercept-url pattern="/errorCode500.do" access="permitAll" />
+		<intercept-url pattern="/reg.do" access="permitAll" />
+		<intercept-url pattern="/**" access="isAuthenticated() and hasAnyRole('ROLE_ADMIN','ROLE_HR','ROLE_IT')" />
+		
+		<custom-filter ref="reCaptchaAuthenticationFilter" position="FORM_LOGIN_FILTER"/>
+		<custom-filter ref="concurrencyFilter" position="CONCURRENT_SESSION_FILTER"/>
+
+		<access-denied-handler error-page="/accessDenied.do" />
+
+		<session-management session-authentication-strategy-ref="sas" invalid-session-url="/sessionTimeout.do"/>
+
+		<logout invalidate-session="true" logout-url="/logout.do" success-handler-ref="customLogoutSuccessHandler" />
+		<csrf/>
+		<headers>
+			<frame-options policy="SAMEORIGIN" />
+		</headers>
+	</http>
+
+	<authentication-manager alias="authManager">
+		<authentication-provider user-service-ref="webUserAuthService">
+			<password-encoder ref="passwordEncoder" />
+		</authentication-provider>
+	</authentication-manager>
+
+	<beans:bean id="loginUrlAuthenticationEntryPoint"
+			class="org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint">
+		<beans:constructor-arg value="/login.do"/>
+	</beans:bean>
+
+	<beans:bean id="reCaptchaAuthenticationFilter" class="com.tradelink.biometric.r2fas.portal.security.filter.ReCaptchaAuthenticationFilter">
+		<beans:property name="authenticationManager" ref="authManager"/>
+		<beans:property name="sessionAuthenticationStrategy" ref="sas" />
+		<beans:property name="filterProcessesUrl" value="/j_spring_security_check"/>
+		<beans:property name="authenticationSuccessHandler" ref="customAuthenticationSuccessHandler" />
+		<beans:property name="authenticationFailureHandler" ref="customAuthenticationFailureHandler"/>
+		<beans:property name="usernameParameter" value="username"/>
+		<beans:property name="passwordParameter" value="password"/>
+	</beans:bean>
+
+	<beans:bean id="sessionRegistry" class="org.springframework.security.core.session.SessionRegistryImpl" />
+	<beans:bean id="sas" class="org.springframework.security.web.authentication.session.CompositeSessionAuthenticationStrategy">
+	<beans:constructor-arg>
+		<beans:list>
+		<beans:bean class="org.springframework.security.web.authentication.session.ConcurrentSessionControlAuthenticationStrategy">
+			<beans:constructor-arg ref="sessionRegistry"/>
+			<beans:property name="maximumSessions" value="1" />
+			<beans:property name="exceptionIfMaximumExceeded" value="true" />
+		</beans:bean>
+		<beans:bean class="org.springframework.security.web.authentication.session.SessionFixationProtectionStrategy" />
+		<beans:bean class="org.springframework.security.web.authentication.session.RegisterSessionAuthenticationStrategy">
+			<beans:constructor-arg ref="sessionRegistry"/>
+		</beans:bean>
+		</beans:list>
+	</beans:constructor-arg>
+	</beans:bean>
+
+	<beans:bean id="sessionInformationExpiredStrategy" class="org.springframework.security.web.session.SimpleRedirectSessionInformationExpiredStrategy">
+		<beans:constructor-arg value="/duplicateAccess.do" />
+	</beans:bean> 
+	<beans:bean id="concurrencyFilter" class="org.springframework.security.web.session.ConcurrentSessionFilter">
+		<beans:constructor-arg ref="sessionRegistry" />
+		<beans:constructor-arg ref="sessionInformationExpiredStrategy" />
+	</beans:bean>
+
+	<!-- DB -->
+	<beans:bean id="passwordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
+	<beans:bean id="captchaSettings" class="com.tradelink.biometric.r2fas.portal.utils.CaptchaSettings" />
+	<beans:bean id="webUserAuthService" class="com.tradelink.biometric.r2fas.portal.security.service.WebUserAuthService" />
+	<beans:bean id="webUserDetailsService" class="com.tradelink.biometric.r2fas.portal.security.service.WebUserDetailsServiceImpl" />
+	
+	<beans:bean id="customAuthenticationSuccessHandler" class="com.tradelink.biometric.r2fas.portal.handler.CustomAuthenticationSuccessHandler">
+		<beans:property name="successURL" value="faceuser.do" />
+	</beans:bean>
+	<beans:bean id="customAuthenticationFailureHandler" class="com.tradelink.biometric.r2fas.portal.handler.CustomAuthenticationFailureHandler">
+		<beans:property name="loginFailURL" value="login.do" />
+		<beans:property name="loginDeniedURL" value="loginDenied.do" />
+	</beans:bean>
+	<beans:bean id="customLogoutSuccessHandler" class="com.tradelink.biometric.r2fas.portal.handler.CustomLogoutSuccessHandler"/>
+	
+</beans:beans>

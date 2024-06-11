@@ -1,0 +1,777 @@
+@charset "utf-8";
+/* CSS Document */
+html {
+	height:100%;
+}
+body {
+	min-width: 800px;
+	font-size: 14px;
+	margin: 0px;
+	padding: 0px;
+	background-color: #FFFFFF;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+	text-decoration: none;
+	color: blue;
+}
+
+a:link {
+	text-decoration: none;
+	color: blue;
+}
+
+a:active {
+	text-decoration: none;
+	color: blue;
+}
+
+a:visited {
+	text-decoration: none;
+	color: blue;
+}
+
+a:hover {
+	text-decoration: none;
+	color: blue;
+}
+
+div.header {
+	margin: 0px;
+	font-size: 12px;
+	float: left;
+	width: 100%;
+	height: 70px;
+	background-color: #FFFFFF;
+	white-space: nowrap;
+}
+
+div.header .header-left .header-logo {
+	margin-left: 20px;
+	margin-top: 10px;
+	float: left;
+}
+
+div.header .header-left .header-info {
+	width: 100px;
+	margin-left: 30px;
+	margin-top: 40px;
+	float: left;
+	margin-right: 5px;
+	font-size:20px;
+}
+
+div.header .header-right {
+	margin-right: 20px;
+	margin-top: 25px;
+	float: right;
+	text-align: right;
+}
+
+div.header .header-right .hotline {
+	float: right;
+	text-align: right;
+	padding-right: 10px;
+	line-height: 20px;
+}
+
+div.header .header-right .lang {
+	float: right;
+	text-align: right;
+	padding-left: 10px;
+	padding-right: 10px;
+	line-height: 40px;
+	border-left: 2px solid #cccccc;
+}
+
+div.header .header-right .compinfo {
+	float: right;
+	text-align: left;
+	padding-left: 10px;
+	padding-right: 10px;
+	line-height: 40px;
+	border-left: 2px solid #cccccc;	
+}
+
+div.header .header-right .userinfo {
+	float: right;
+	text-align: right;
+	padding-left: 10px;
+	height: 100%;
+	line-height: 40px;
+	/*border-left: 2px solid #cccccc;*/
+}
+
+div.loginbox {
+	/* background-image: url('../images/login-bg.jpg'); */
+	background-size: 100% 100%;
+	overflow: hidden;
+	height: 380px;
+	font-size: 12px;
+}
+
+div.login {
+	width: 350px;
+	margin: 0 auto;
+	float: center;
+	background-color: rgba(255, 255, 255, 0.80);
+	border-radius: 5px;
+	border: 1px solid #9a9a9a;
+}
+
+div.loginTitle {
+	padding-top: 10px;
+	width: 100%;
+	text-align: center;
+	line-height: 40px;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+div.logininput {
+	width: 100%;
+	padding-top: 5px;
+	padding-bottom: 5px; 
+	margin-right: 10px;
+	margin-left: 25px;
+}
+
+div.loginbutton {
+	width: 100%;
+	text-align: right;
+	padding-bottom: 10px;
+	padding-top: 10px;
+	overflow: hidden;
+}
+
+div.loginbutton .loginbuttonleft {
+	padding-left: 30px;
+	line-height: 20px;
+	float: left;
+}
+
+div.loginbutton .loginbuttonright{
+	float: right;
+}
+
+div.loginerror {
+	color: red;
+	font-weight:bold;
+	padding-left: 25px;
+	padding-right: 15px;
+}
+
+div.content {
+	float: left;
+	padding: 20px;
+	width: 95%;
+}
+
+div.content .title {
+	overflow: hidden;
+	width: 100%;
+}
+
+div.content .title .title-left {
+	font-size: 20px;
+	color: #fb8b00;
+	font-weight: bold;	
+	float: left;
+}
+
+div.content .title .title-right {
+	font-size: 12px;
+	float: right;
+}
+
+div.content .title .subcolurm{
+	width: 150px;
+	float: left;
+	line-height:20px;
+}
+div.content .msg {
+	padding-top:20px;
+	font-size: 14px;
+	color: black;
+}
+
+div.content .errorTitle {
+	font-size: 20px;
+	color: red;
+	font-weight: bold;	
+}
+
+div.content .errorMsg {
+	padding-top:20px;
+	font-size: 14px;
+	color: red;
+}
+
+div.content .errorAction {
+	padding-top:20px;
+}
+
+div.content .body {
+	padding-top:10px;
+}
+
+div.footer {
+	border-top: 1px solid #cccccc;
+	border-bottom: 1px solid #cccccc;
+	background-color: #efefef;
+	overflow: hidden;
+	font-size: 12px;
+}
+
+div.footer .footer-left {
+	padding-left: 20px;
+	float: left;
+	line-height: 40px;
+	color: #666666;
+}
+
+div.footer .footer-right {
+	padding-right: 20px;
+	float: right;
+	line-height: 40px;
+	color: #666666;
+}
+
+div.mainMenu {
+	height: 30px;
+	margin: 0px;
+	font-size: 12px;
+	float: left;
+	width: 100%;
+	background-color: #042564;
+	white-space: nowrap;
+}
+
+div.mainMenu .menuLeft {
+	width: 30px;
+	float: left;
+}
+
+div.mainMenu .menuItem {
+	margin: 0px;
+	height: 100%;
+	width: 160px;
+	text-align: center;
+	float:left;
+}
+
+div.mainMenu .active {
+	background-color: #cbcbcb;
+}
+
+div.statusMenu {
+	height: 70px;
+	width:100%;
+	background-color: #FFFFFF;
+	margin: 0%;
+	white-space: nowrap;
+	padding-top: 30px;
+	padding-bottom: 20px;
+}
+
+div.statusMenu .menuItem {
+	height: 70px;
+	min-width: 180px;
+	width: 16.5%;
+	border-right: 2px solid #cccccc;
+	float: left; 
+}
+
+div.statusMenu .itemHeader {
+	height : 20px;
+	width : 100%;
+}
+div.statusMenu .itemContent {
+	height : 50px;
+	width : 100%;
+	text-align: right;
+	text-weight:bold;
+}
+div.statementTable {
+	min-width: 800px;
+	width:100%;
+	border-top: 1px solid #cccccc;
+	border-left: 1px solid #cccccc;
+	border-right: 1px solid #cccccc;
+	paddign-top: 150px;
+}
+div.statementTable .tableHeaderLayout {
+	height: 35px;
+	width: 100%;
+	vertical-align:bottom;
+	background-color: white;
+	white-space: nowrap;
+	border-bottom: 1px grey solid;
+}
+div.statementTable .tableHeaderLayout .headerItem {
+	height: 35px;
+	min-width: 200px;
+	width:25%;
+	text-align: center;
+	float: left;
+	line-height: 35px;
+}
+
+div.statementTable .oddRow{
+	height: 25px;
+	width:100%;
+	min-width:800px;
+	background-color:#efefef;
+	border-bottom: 1px #cccccc solid;
+}
+div.statementTable .evenRow{
+	height: 25px;
+	width:100%;
+	min-width:800px;
+	background-color:white;
+	border-bottom: 1px #cccccc solid;
+}
+
+
+div.statementTable .rowItem{
+	height: 20px;
+	min-width: 200px;
+	width:25%;
+	float: left;
+	align:center;
+	text-align:center;
+}
+
+div.userInfoLayout{
+	width: 100%;
+	background-color: #FFFFFF; 
+	float: left;
+	margin: 0%;
+	white-space: nowrap;
+	padding-top: 20px;
+	padding-bottom: 10px;
+}
+
+div.userInfoLayout .leftbox{
+	width: 400px;
+	height: 100px;
+	float:left;
+}
+div.userInfoLayout .rightbox{
+	width: 400px;
+	height: 100px;
+	float:left;
+	
+}
+
+
+div.paymentActionbar {
+	height: 25px;
+	width: 100%;
+	margin: 0%;
+	white-space: nowrap;
+	float:left;
+	padding-top: 10px;
+	padding-bottom: 20px;
+}
+div.paymentActionbar .selectboxLayout {
+	background-color: white;
+	height: 25px;
+	float:left;
+	text-align:center;
+	line-height:25px;
+	padding-left:15px;
+	padding-right:15px;
+	white-space: nowrap;
+}
+
+div.paymentActionbar .paymentActionButton{
+	border-radius: 3px 3px 3px 3px;
+	height: 25px;
+	float:left;
+	background-color:#0174DF;
+	margin-right:15px;
+	text-align:center;
+	padding-left:15px;
+	padding-right:15px;
+	white-space: nowrap;
+}
+div.paymentActionbar .paymentActionButtonDisabled{
+	border-radius: 3px 3px 3px 3px;
+	height: 25px;
+	float:left;
+	background-color:#cccccc;
+	margin-right:15px;
+	text-align:center;
+	padding-left:15px;
+	padding-right:15px;
+	white-space: nowrap;
+}
+
+div.accountStatementTableLayout{
+	white-space: nowrap;
+	min-width: 800px;
+	width:100%;
+	float:left;
+}
+div.accountStatementTableLayout .header{
+	height: 30px;
+	background-color:#424242; 
+	white-space: nowrap;
+	float:left;
+}
+div.accountStatementTableLayout .subHeader {
+	height: 25px;
+	width:100%;
+	background-color:#676767; 
+	white-space: nowrap;
+	float:left;
+}
+div.accountStatementTableLayout .header .item {
+	min-width: 133px;
+	width:16.6%;
+	line-height: 30px;
+	text-align: center;
+	float: left;
+	
+	}
+div.accountStatementTableLayout .subHeader .item {
+	min-width: 133px;
+	width:16.6%;
+	line-height: 25px;
+	text-align: center;
+	float: left;
+	
+	}
+
+div.accountStatementTableLayout .oddRow{
+	height: 25px;
+	width:100%;
+	background-color:#efefef;
+	border-bottom: 1px #cccccc solid;
+	float: left;
+}
+div.accountStatementTableLayout .evenRow{
+	height: 25px;
+	width:100%;
+	background-color:white;
+	border-bottom: 1px #cccccc solid;
+	float: left;
+}
+div.accountStatementTableLayout .rowItem{
+	height: 20px;
+	min-width: 133px;
+	width:16.6%;
+	float: left;
+	text-align:center;
+}
+
+div.accountStatementTableLayout  .rightItem{
+	height: 20px;
+	min-width: 133px;
+	width:16.6%;
+	float: left;
+	text-align:right;
+}
+div.accountStatementTableLayout .selectboxItem {
+	height: 20px;
+	float:left;
+	text-align:center;
+	line-height:20px;
+	padding-left:15px;
+	padding-right:15px;
+	white-space: nowrap;
+}
+div.paymentProcessLayout {
+	width:100%;
+	min-width:850px;
+	padding-top:20px;
+	overflow: hidden;
+} 
+
+div.paymentProcessLayout .layoutLeft{
+	min-width:400px;
+	width:49.9%;
+	float:left;
+	align:center;
+	
+}
+div.paymentProcessLayout .layoutCenter{
+	height:100%;
+	background-color:#cccccc;
+	width:1px;
+	float:left;
+}
+div.paymentProcessLayout .layoutRight{
+	min-width:400px;
+	min-height:330px;
+	width:49.9%;
+	float:right;
+	border-left: 1px solid #cccccc; 
+	align: center;
+}
+
+div.paymentProcessLayout .headerLayout{
+	margin:0 auto;
+	min-width: 380px;
+	width:95%;
+	height: 30px;
+	background-color: #dddddd;
+	border-top:1px solid #cccccc;
+	border-left:1px solid #cccccc;
+	border-right: 1px solid #cccccc;
+	border-radius: 3px 3px 0px 0px;
+	
+}
+
+div.paymentProcessLayout .headerLayout-green{
+	min-width: 380px;
+	margin:0 auto;
+	width:95%;
+	height: 30px;
+	background-color: #aaf4ac;
+	border-top:1px solid #cccccc;
+	border-left:1px solid #cccccc;
+	border-right: 1px solid #cccccc;
+	border-radius: 3px 3px 0px 0px;
+	
+	
+}
+div.paymentProcessLayout .itemBody{
+	min-width: 380px;
+	margin:0 auto;
+	width:95%;
+	border:1px solid #cccccc;
+	border-radius: 0px 0px 3px 3px;
+
+	
+}
+div.paymentProcessLayout.itemBody .invoiesListOddrow{
+	width: 100%;
+	float:left;
+	background-color: white;
+	border-bottom: 1px #cccccc solid;
+	border-left: 1px #cccccc solid;
+	border-right: 1px #cccccc solid;
+	height: 100%;
+}
+div.paymentProcessLayout .itemBody .invoiesListEvenrow{
+	width: 100%;
+	background-color: #efefef;
+	border-bottom: 1px #cccccc solid;
+	float:left;
+	height: 100%;
+}
+div.paymentProcessLayout .itemBody .rowitemfirst{
+	min-width: 122px;
+	width:32px;
+	float: left; 
+	text-align:center;
+}
+
+div.paymentProcessLayout .itemBody .selectionLayout {
+	min-width:360px;
+	width:94.7%;
+	margin:0 auto;
+	height: 50px;
+	border-radius: 3px 3px 3px 3px;
+	border: 1px solid #afafaf;
+	line-height:50px;
+}
+div.paymentProcessLayout .button{
+	background-color: #0174DF;
+	border-radius: 3px 3px 3px 3px;
+	text-align:center;
+	padding-left:15px;
+	padding-right:15px;
+	margin-right: 10px;
+}
+
+div .remittanceAdvicePage {
+	overflow: hidden;
+	min-width:806px;
+	width:100%;
+}
+
+div .remittanceAdvicePage .Layout-Left{
+	margin-left: 120px;
+	min-width:400px;
+	float:left;
+	padding-right: 15px;
+}
+div .remittanceAdvicePage .Layout-Right{
+	border: 2px dashed grey;
+	border-radius:5px 5px 5px 5px;
+	min-width:10px;
+	width:30%;
+	float:right;
+}
+
+div .remittanceAdvicePage .Layout-Left .subtitle{
+	height: 40px;
+	
+	width:400px;
+	overflow: hidden;
+}
+div .remittanceAdvicePage .Layout-Left .subtitle .subtitle-left{
+	font-size: 20px;
+	color: #0174DF;
+	font-weight: bold;	
+	float: left;
+}
+div .remittanceAdvicePage .Layout-Left .subtitle .subtitle-right{
+	font-size: 12px;
+	float: right;
+	
+}
+
+div.invoiesListOddrow{
+	width: 100%;
+	float:left;
+	background-color:white;
+	border-bottom: 1px #cccccc solid;
+	
+}
+div .invoiesListEvenrow{
+	width: 100%;
+	background-color:#efefef;
+	border-bottom: 1px #cccccc solid;
+	float:left;
+}
+font.menulabel {
+	color: white;
+	font-weight: bold;
+	line-height: 30px;
+	font-size: 14px;
+}
+
+font.active {
+	color: #fb8b00;
+}
+
+font.statusMenuHeader {
+	color: grey;
+	font-size:14px;
+	line-weight: 20px;
+	padding-left: 10px;
+	font-align: left;
+}
+font.statusMenuContent {
+	color: black;
+	height: 40px;
+	padding-top: 15px;
+	padding-bottom: 10px; 
+	padding-right: 10px;
+	font-size: 25px;
+}
+font.statementTableHeader {
+	color: black;
+	line-height: 20px;
+	font-size: 15px;
+	font-weight: bold;
+	
+}
+font.statementTableRowItem {
+	color: black;
+	font-size: 15px;
+	line-height: 25px;
+}
+font.statementAccountHyperLink{
+	font-size: 15px;
+	color: #013ADF;
+	font-weight: bold;
+	line-height:20px;
+		
+}
+font.statementAccountTitle{
+	font-size: 20px;
+	color: black;
+	font-weight: bold;	
+}
+font.statementAccountButtonText{
+	font-size:12px;
+	color:white;
+	line-height:25px;
+	
+}
+font.acccountStatementUserInfoText {
+	font-size:14px;
+	color: black;
+	line-height: 20px;
+	
+}
+font.acccountStatementTableSubHeader {
+	font-size:12px;
+	color: white;
+	font-style: italic;
+	line-height: 25px;
+	padding-left: 10px;
+}
+font.acccountStatementTableRowText {
+	font-size:12px;
+	color: black;
+	line-height: 25px;
+	
+}
+font.acccountStatementTableLastRowText {
+	font-size:12px;
+	color: black;
+	line-height: 25px;
+	padding-right: 30px;
+}
+font.acccountStatementTableLastRowlabel {
+	font-size:12px;
+	color: black;
+	line-height: 25px;
+	padding-right: 30px;
+	font-weight: bold;
+}
+font.paymentProcessHeaderText {
+	line-height: 30px;
+	font-size:12px;
+	padding-left: 15px;
+	color:black;
+} 
+font.paymentProcessHeaderTextNoSpace {
+	line-height: 30px;
+	font-size:12px;
+	color:black;
+} 
+font.paymentProcessHeaderText-green {
+	line-height: 30px;
+	font-size:12px;
+	padding-left: 15px;
+	color:#5ca37a;
+} 
+
+
+font.paymentProcessPaymentAmount{
+	line-height:35px;
+	font-size: 18px;
+	font-weight:Bold;
+	color:black;
+	padding-right: 15px;
+	align: right;
+}
+font.paymentProcessPaymentAmountunit{
+	line-height:35px;
+	font-size: 13px;
+	font-weight:Bold;
+	color:black;
+	padding-right: 15px;
+	align: right;
+}
+font.paymentProcessButtonTextBig{
+	font-size:18px;
+	color:white;
+	line-height:30px;
+	
+}
+font.paymentProcessDescriptionText {
+	line-height: 20px;	
+	font-size:10px;
+	color:black;
+	align:right;
+	word-wrap:break-all;
+}
